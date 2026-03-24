@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General Store India - Your One-Stop Shop</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-store"></i>
+                <span>General Store India</span>
+            </div>
+
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search for products, brands and more...">
+            </div>
+
+            <div class="header-actions">
+                <button class="btn-icon" id="aiAssistantBtn" data-testid="ai-assistant-btn">
+                    <i class="fas fa-robot"></i>
+                    <span>AI Assistant</span>
+                </button>
+                <button class="btn-icon cart-btn" id="cartBtn" data-testid="cart-btn">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount" data-testid="cart-count">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="container">
+            <button class="category-chip active" data-category="all" data-testid="category-all">All Products</button>
+            <button class="category-chip" data-category="electronics"
+                data-testid="category-electronics">Electronics</button>
+            <button class="category-chip" data-category="fashion" data-testid="category-fashion">Fashion</button>
+            <button class="category-chip" data-category="home" data-testid="category-home">Home & Living</button>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="products-header">
+                <h2 data-testid="products-title">Trending Products</h2>
+                <select id="sortSelect" class="sort-select" data-testid="sort-select">
+                    <option value="default">Sort By</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="name">Name: A to Z</option>
+                </select>
+            </div>
+
+            <div class="products-grid" id="productsGrid" data-testid="products-grid">
+                <!-- Products will be loaded here dynamically -->
+            </div>
+        </div>
+    </main>
+
+    <!-- AI Assistant Modal -->
+    <div class="modal" id="aiModal">
+        <div class="modal-content ai-assistant" data-testid="ai-modal">
+            <div class="modal-header">
+                <h3><i class="fas fa-robot"></i> AI Shopping Assistant</h3>
+                <button class="btn-close" id="closeAiModal" data-testid="close-ai-modal">&times;</button>
+            </div>
+            <div class="chat-container" id="chatContainer" data-testid="chat-container">
+                <div class="chat-message bot">
+                    <div class="message-content">
+                        Hello! I'm your AI shopping assistant. Ask me anything like:
+                        <ul>
+                            <li>"Show me phones under 15000"</li>
+                            <li>"I need a laptop for gaming"</li>
+                            <li>"Suggest some ethnic wear"</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="chat-input-container">
+                <input type="text" id="chatInput" placeholder="Ask me anything..." data-testid="chat-input">
+                <button id="sendChatBtn" data-testid="send-chat-btn"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="modal" id="cartModal">
+        <div class="modal-content cart-modal" data-testid="cart-modal">
+            <div class="modal-header">
+                <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
+                <button class="btn-close" id="closeCartModal" data-testid="close-cart-modal">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems" data-testid="cart-items">
+                <!-- Cart items will be loaded here -->
+            </div>
+            <div class="cart-footer" id="cartFooter">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span class="total-amount" id="totalAmount" data-testid="total-amount">₹0</span>
+                </div>
+                <button class="btn-primary" id="checkoutBtn" data-testid="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast" data-testid="toast-notification"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
